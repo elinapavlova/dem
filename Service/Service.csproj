@@ -51,6 +51,7 @@
     <Compile Include="Client.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClientService.cs" />
     <Compile Include="GlobalContainer.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>

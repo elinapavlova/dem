@@ -15,21 +15,19 @@ namespace test_dem
 
         private void Authorize_Click(object sender, RoutedEventArgs e)
         {
-            var isLoginValid = UserService.IsLoginValid(Login.Text);
-            var isPasswordValid = UserService.IsPasswordValid(Password.Password);
-            var isLoginExist = UserService.IsLoginExist(Login.Text);
+            var login = Login.Text.Trim();
+            var password = Password.Password.Trim();
 
-            //if (isLoginValid != true || isPasswordValid != true || isLoginExist != true)
-            //{
-            //    return;
-            //}
+            var isLoginValid = UserService.IsLoginValid(login);
+            var isPasswordValid = UserService.IsPasswordValid(password);
+            var isLoginExist = UserService.IsLoginExist(login);
 
-            if (isLoginExist != true)
+            if (isLoginValid != true || isPasswordValid != true || isLoginExist != true)
             {
-                return;
+               // return;
             }
 
-            var result = UserService.Authorize(Login.Text, Password.Password);
+            var result = UserService.Authorize(login, password);
             if (result == null)
             {
                 MessageBox.Show("Неверный пароль");
